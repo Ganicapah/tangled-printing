@@ -1,4 +1,5 @@
 import Image from "next/image";
+// import { ProductViewer } from "@/modules/catalog/components/ProductViewer";
 
 export default function Home() {
   return (
