@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-// 1. Perbaikan tipe data agar sesuai dengan lanyardProducts
 interface Product {
   id: string;
   name: string;
@@ -35,10 +34,8 @@ export default function ProductViewer() {
   const activeProduct = lanyardProducts[activeIndex];
 
   return (
-    // 2. Wrapper utama dengan layout split-screen
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Panel Kiri: Tipografi dan Spesifikasi */}
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-black text-neutral-900 mb-2">
             {activeProduct.name}
@@ -47,7 +44,6 @@ export default function ProductViewer() {
             Rp {activeProduct.price.toLocaleString("id-ID")}
           </p>
 
-          {/* Grid spesifikasi dari kode Anda */}
           <div className="grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8 mb-10">
             <div className="flex flex-col">
               <span className="text-2xl font-black text-neutral-900">
@@ -68,7 +64,6 @@ export default function ProductViewer() {
             <div className="flex flex-col">
               <span className="text-2xl font-black text-neutral-900">
                 {activeProduct.specs.material.split(" ")[0]}{" "}
-                {/* Mengambil kata pertama */}
               </span>
               <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 mt-1">
                 Bahan
@@ -77,12 +72,7 @@ export default function ProductViewer() {
           </div>
         </div>
 
-        {/* Panel Kanan: Penampung Aset Visual */}
         <div className="relative w-full aspect-square flex items-center justify-center bg-neutral-50 rounded-3xl overflow-hidden">
-          {/* 
-            3. Class 'transform' dan 'scale' di sini disiapkan sebagai fondasi 
-            untuk animasi masuk ke dalam layar pada Issue berikutnya.
-          */}
           <div className="relative w-3/4 h-3/4 transition-transform duration-700 ease-in-out transform scale-100 hover:scale-95">
             <Image
               src={activeProduct.image}
